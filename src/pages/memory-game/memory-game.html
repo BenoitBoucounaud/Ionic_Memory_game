@@ -1,0 +1,41 @@
+<!--
+  Generated template for the CorectionMemoryGamePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Correction du memory game</ion-title>
+  </ion-navbar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>Moves: </ion-col>
+      <ion-col>{{numberOfMoves}}</ion-col>
+      <ion-col>Found: </ion-col>
+      <ion-col>{{foundCards}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let card of cardList; let pos = index" (click)="flipCard(card, pos)">
+        <img [src]="card.img" class="card">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
+
+<ion-footer padding>
+  <!--On lie l attribut '' à lexpresion [disabled]-->
+ <button ion-button full [disabled]='foundCards!=numberOfCards' (click)='replay()'>Rejouer</button>
+</ion-footer>
